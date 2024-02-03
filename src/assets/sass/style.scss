@@ -4,18 +4,89 @@
 @import "base/fonts";
 @import "base/colors";
 @import "plugs/mixins";
+ul{
+    
+    li{
+        text-align: center;
+        list-style: none;
+        width: 100%;
+    }
+}
+
+.glTxtAb{
+    font-family: "Cuprum", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    user-select: none;
+    position: relative;
+   
+    &::after{
+        content: "";
+        opacity: 0;
+        width: 0px;
+        height: 2px;
+      
+        background-color: black;
+        
+        position: absolute;
+        right: 50%;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, -50%);
+        transition: width .7s ease-out;
+        
+    }
+    
+   
+    
+    &:hover{
+        cursor: pointer;
+        
+        &::after{
+            opacity: 1;
+            display: inherit;
+            width: 100px;
+           
+        }
+        
+    }
+}
+.txtAb{
+    font-family: "Cuprum", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
 html{
     background: $page-gradient;
+    height: 100%;
+    width: 100%;
+    
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
 }
 
 main{
-    height: 100vh;
     
+    height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
     .conteiner_body{
+    
         position: relative;
         .cartuna{
             height: 100%;
@@ -52,116 +123,53 @@ main{
         
     }
 }
-article{
-    .cartun{
-        width: 40vw;
-        border-radius: 10px;
+.info{
+    .buttonscont{
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        flex-direction: column;
     }
-    .infohead, .infobody, .infohand, .infolegs{
-        font-size: 20px;
-        
-        
-        border-radius: 10px 0 0 10px;
-        padding: 30px;
-        position: fixed;
-        top: 0%;
-        left:25%;
-        right: 0px;
-        overflow: scroll;
-      
-        height: 96%;
-        background-color: white;
-        display: none;
     
+    overflow-y: scroll;
+    background-color: white;
+    position: relative;
+    
+    width: 100vw;
+    height: 100vh;
+ 
+    display: flex;
+    flex-direction: column;
+    .aboutnone{
+        display: flex;
+        flex-direction: column;
     }
-
-
-}
-
-.pologbtn, .eyesbtn, .mousebtn, .backbtn, .shouldersbtn, .fingersbtn, .handspositionbtn, .legspositionbtn{
-    cursor: pointer;
-}
-
-.polog, .eyes, .mouse, .back, .shoulders, .fingers, .handsposition, .legsposition, .testh{
-    display: none;
-}
-
-.testh{
-    background-color: grey;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 10px;
-    .win{
-      @include end($color: rgba(32, 190, 32, 0.749))
-    }
-    .loose{
-        @include end($color: rgba(190, 58, 32, 0.749))
-    }
-    .test{
-        margin: 10px;
-        @include tests;
-        ul{
-            width: 100%;
-            li{
-                position: relative;
-                text-align: center;
-                list-style-type: none;
-                border: 1px solid black;
-                margin-bottom: 5px;
-                border-radius: 10px 10px 10px 10px;
-                padding: 5px;
-                z-index: 2000;
-                cursor: pointer;
+    .about{
+        margin-bottom: 10px;
+        box-shadow: 2px 1px 5px rgb(0, 0, 0);
+        
+           div{
+            img{
+                
+                height: 100%;
                 width: 100%;
-                transition: all .2s;
-                &:active{
-                    &::before{
-                        transform: scale(2);
-                        opacity: 0;
-                    }
-                }
-                &:hover{
-                    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.804);
-                    background-color:#826CB1;
-                    transform: translateY(-3px) scale(1.01);
-                  
-                }
-                &::before{
-                    border-radius: 100%;
-                    z-index: -2;
-                    content: "";
-                    background-color: white;
-                    transition: all .2s;
-                    top: 0;
-                    left: 0;
-                    transform: scale(0);
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                }
-
+                border-radius: 10px;
             }
+           }
            
-        }
-     
-        p{
-            text-align: center;
-            grid-column-start: 1;
-            grid-column-end: 3;
-        }
-        .nervov{
-    
-            width: 35vw;
-            border-radius: 10px;
-        }
-        .variaty{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            
-        }
+        
+        
+        display: grid;
+        border: 1px solid rgba(0, 0, 0, 0.126);
+        border-radius: 10px;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        align-items: center;
+        
+        
+      
+        
     }
-   
 }
 
